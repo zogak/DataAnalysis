@@ -53,8 +53,8 @@ data2 <- na.omit(data2)
 View(data2)
 
 #unit integration in column"Size"
-data2$Size <- gsub("[k]","000",data2$Size)
-data2$Size <- gsub("[M]","",data2$Size)
-data2$Size <- as.numeric(data2$Size)
-View(data2)
-table(is.na(data2$Size))
+#data2$Size <- gsub("[k]","000",data2$Size)
+#data2$Size <- gsub("[M]","",data2$Size)
+#data2$Size <- as.numeric(data2$Size)
+#View(data2)
+#table(is.na(data2$Size))
