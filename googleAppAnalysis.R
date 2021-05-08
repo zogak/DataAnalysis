@@ -52,9 +52,35 @@ table(is.nan(data2$Rating))
 data2 <- na.omit(data2)
 View(data2)
 
-#unit integration in column"Size"
-#data2$Size <- gsub("[k]","000",data2$Size)
-#data2$Size <- gsub("[M]","",data2$Size)
-#data2$Size <- as.numeric(data2$Size)
-#View(data2)
-#table(is.na(data2$Size))
+#remove rownames
+rownames(data2) <- NULL
+View(data2)
+
+#unit integration(to Mbyte) in column"Size"
+
+Kbyte <- grep('k', data2$Size)
+View(data2[Kbyte,])
+rownames(data2[Kbyte,])
+
+#크기가 kbyte인 행들의 번호를 KbyteRows 라는 새로운 벡터에 저장
+KbyteRows <- c(rownames(data2[Kbyte,]))
+KbyteRows
+#k 문자 제거
+data2[Kbyte,]$Size <- gsub("[k]", "", data2[Kbyte,]$Size)
+View(data2[Kbyte,])
+
+#M 문자 제거
+data2[-Kbyte,]$Size <- gsub("[M]", "", data2[-Kbyte,]$Size)
+View(data2[Kbyte,])
+#Size column 숫자로 변환
+data2$Size <- as.numeric(data2$Size)
+View(data2)
+#여기까지 상황은 size 모두 특수문자 빼고 숫자로 바꾼 상태
+
+#k였던것들에 0.001 곱해야해
+data2[KbyteRows,]$Size <- data2[KbyteRows,]$Size*0.001
+View(data2[KbyteRows,])
+
+View(data2)
+table(is.na(data2$Size))
+#size na인것들을 제거할까말까
