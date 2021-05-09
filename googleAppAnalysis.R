@@ -84,3 +84,5 @@ View(data2[KbyteRows,])
 View(data2)
 table(is.na(data2$Size))
 #size na인것들을 제거할까말까
+
+table(data2$Category)
