@@ -1,5 +1,6 @@
+library(dplyr)
 #open csv file
-imgData <- read.csv(file= "PlayStoreImgData.csv")
+imgData <- read.csv(file= "D:/21_1/appAnalysis/PlayStoreImgData.csv")
 View(imgData)
 str(imgData)
 
@@ -16,3 +17,7 @@ rownames(imgData) <- NULL
 
 #save csv
 write.csv(imgData,"imgData.csv", row.names=FALSE)
+
+#open data3c
+data3 <- read.csv(file = "D:/21_1/appAnalysis/data3.csv")
+downsized <- imgData %>% inner_join(data3, by = c('name' = 'App'))

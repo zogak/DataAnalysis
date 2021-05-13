@@ -85,4 +85,7 @@ View(data2)
 table(is.na(data2$Size))
 #size na인것들을 제거할까말까
 
-table(data2$Category)   
+#app, category, rating, reviews, size, installs, type
+data3 <- data2%>%select(App, Category, Rating, Reviews, Size, Installs, Type)
+View(data3)
+write.csv(data3,"data3.csv", row.names=FALSE)
