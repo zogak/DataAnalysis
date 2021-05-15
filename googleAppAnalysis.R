@@ -2,7 +2,7 @@
 library(dplyr)
 
 #open csv file
-data <- read.csv(file = "D:/21_1/appAnalysis/googleplaystore.csv")
+data <- read.csv(file = "DataAnalysis-main/googleplaystore.csv")
 
 #data check
 dim(data)
@@ -24,12 +24,6 @@ data$Installs <- gsub("[+$,]","",data$Installs)
 #change chr type to numeric
 data$Installs <- as.numeric(data$Installs)
 
-#data$Installs
-#mean(data$Installs, na.rm=T)
-#data$Category
-#data$Genres
-#data$Content.Rating
-
 #remove NA
 data1 <- na.omit(data)
 View(data1)
@@ -41,9 +35,6 @@ View(data2)
 
 table(data2$Category)
 table(data2$Type)
-#category개수대비 install수
-#library(dplyr)
-#data2%>%group_by(Category)%>%summarise(avg=mean(Installs))
 
 #remove NAN in column "Rating"
 data2$Rating <- as.numeric(data2$Rating)
@@ -62,30 +53,30 @@ Kbyte <- grep('k', data2$Size)
 View(data2[Kbyte,])
 rownames(data2[Kbyte,])
 
-#크기가 kbyte인 행들의 번호를 KbyteRows 라는 새로운 벡터에 저장
+#store the number of rows whose size is kbyte to the new vector called KbyteRows
 KbyteRows <- c(rownames(data2[Kbyte,]))
 KbyteRows
-#k 문자 제거
+
+#remove character 'k'
 data2[Kbyte,]$Size <- gsub("[k]", "", data2[Kbyte,]$Size)
 View(data2[Kbyte,])
 
-#M 문자 제거
-data2[-Kbyte,]$Size <- gsub("[M]", "", data2[-Kbyte,]$Size)
+#remove character 'M'
+data2[Kbyte,]$Size <- gsub("[M]", "", data2[-Kbyte,]$Size)
 View(data2[Kbyte,])
-#Size column 숫자로 변환
+
+#change type of 'Size' column into numeric
 data2$Size <- as.numeric(data2$Size)
 View(data2)
-#여기까지 상황은 size 모두 특수문자 빼고 숫자로 바꾼 상태
 
-#k였던것들에 0.001 곱해야해
+#multiply 0.001 to those originally kByteRows
 data2[KbyteRows,]$Size <- data2[KbyteRows,]$Size*0.001
 View(data2[KbyteRows,])
 
 View(data2)
 table(is.na(data2$Size))
-#size na인것들을 제거할까말까
 
-#app, category, rating, reviews, size, installs, type
+#select app, category, rating, reviews, size, installs, type
 data3 <- data2%>%select(App, Category, Rating, Reviews, Size, Installs, Type)
 View(data3)
-write.csv(data3,"data3.csv", row.names=FALSE)
+write.csv(data3,"DataAnalysis-main/data3.csv", row.names=FALSE)
