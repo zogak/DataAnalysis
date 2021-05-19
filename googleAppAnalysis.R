@@ -18,8 +18,6 @@ dim(data)
 
 #remove special characters in column"Installs"
 data$Installs <- gsub("[+$,]","",data$Installs)
-#data
-#data[data$Category=="ART_AND_DESIGN","Installs"]
 
 #change chr type to numeric
 data$Installs <- as.numeric(data$Installs)
@@ -62,7 +60,7 @@ data2[Kbyte,]$Size <- gsub("[k]", "", data2[Kbyte,]$Size)
 View(data2[Kbyte,])
 
 #remove character 'M'
-data2[Kbyte,]$Size <- gsub("[M]", "", data2[-Kbyte,]$Size)
+data2[-Kbyte,]$Size <- gsub("[M]", "", data2[-Kbyte,]$Size)
 View(data2[Kbyte,])
 
 #change type of 'Size' column into numeric
