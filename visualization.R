@@ -9,10 +9,10 @@ View(targetData)
 
 #for whole data
 #review and rating
-ggplot(data=targetData, aes(Rating, Reviews)) + geom_jitter(size = 1, alpha=0.8, height=0.2) + scale_y_log10()
+ggplot(data=targetData, aes(Rating, Reviews)) + geom_jitter(size = 2, alpha=0.8, height=0.2) + scale_y_log10()
 
 #relation between SIZE and INSTALL
-ggplot(data=targetData, aes(Size, Installs)) + geom_jitter(height = 0.8) + scale_y_log10()
+ggplot(data=targetData, aes(Size, Installs)) + geom_jitter(size=2,height = 0.8) + scale_y_log10()
 mean(targetData$Size, na.rm = TRUE)
 
 #type and rating
