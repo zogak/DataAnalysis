@@ -26,6 +26,21 @@ __1. Architecture__
 
 __2. Color classification__
 
+<img src="https://user-images.githubusercontent.com/76643037/120064751-db3a4580-c0a8-11eb-8d4f-e52fe419c0e4.png" width="80%">
+(R,G,B) has value between 0 - 255 each.<br>
+I set R,G,B as axis in 3D space and divided each axis with 5 ranges(0-50,51-101,102-152,153-203,105-255).<br>
+Then, it is divided into total 125 ranges and I specified one color for each range.<br>
+I limited the color to 10(red, pink, orange, yellow, green, lightblue, blue, purple, white, black).<br>
+<br>
+
+<img src="https://user-images.githubusercontent.com/76643037/120064753-de353600-c0a8-11eb-9ef3-5724b379071e.png" width="80%">
+Each app img is consists of 128X128 pixels.<br> 
+With RGB values for each pixel, I specified the pixel's color by putting RGB values to the formula above.<br>
+
+*ex) if a certain pixel has (220, 50, 50) RGB value, the pixel's color is 'red'.*
+
+After specifying colors of all pixels in the img, I set the img's color to the pixel's color that appeared the most.
+<br>
 
 ## Data Visualization
 <p>
