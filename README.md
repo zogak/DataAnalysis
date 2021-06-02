@@ -65,5 +65,9 @@ After specifying colors of all pixels in the img, I set the img's color to the p
 <img src="https://user-images.githubusercontent.com/76643037/119491182-9789c800-bd98-11eb-8a6e-5423c8042078.png" width="32%">
 <img src="https://user-images.githubusercontent.com/76643037/119491138-8b9e0600-bd98-11eb-946a-61c81bf5e305.png" width="32%">
 <img src="https://user-images.githubusercontent.com/76643037/119491155-90fb5080-bd98-11eb-86b7-a5122c27dc37.png" width="32%">
+
+ * The graph on the left shows the colors that are used in app imgs. 'White' is the most commonly used in the app imgs, and 'Blue' for the second. Red, Black and Green follows.
+ * Installs - Category (with color)
+ * Color - Category (with color)
 </p>
 
