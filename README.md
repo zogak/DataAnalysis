@@ -1,5 +1,6 @@
 # Google Play Store Data Analysis
-to figure out overall characteristics of apps in Google Play Store
+to figure out overall characteristics of apps in Google Play Store <br>
+(2021.05.01 - 2021.05.21)
 
 ## Contents
 - [Data Acquistion](#data-acquisition)
